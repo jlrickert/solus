@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "noEmit": true,
+        "esModuleInterop": true,
+        "strict": true
+    },
+    "exclude": ["packages/**/dist/**"],
+    "references": [
+        {
+            "path": "packages/ecs"
+        }
+    ]
+}
