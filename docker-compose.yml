@@ -1,0 +1,43 @@
+services:
+    caddy:
+        restart: unless-stopped
+        image: caddy:latest
+        ports:
+            - "80:80"
+            - "443:443"
+            - "443:443/udp"
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile:ro
+            - ./.caddy/data:/data:rw
+        environment:
+            ACME_AGREE: "true"
+            NODE_ENV: "development"
+
+    server:
+        extends:
+            file: docker-compose.base.yml
+            service: nx-app-base
+        command: nx run server:serve:development
+        ports:
+            - 3333:3333
+            - 9229:9229
+        environment:
+            NODE_ENV: "development"
+
+    game:
+        extends:
+            file: docker-compose.base.yml
+            service: nx-app-base
+        command: nx run game:serve:development --host=0.0.0.0 --disableHostCheck=true
+        ports:
+            - 4200:4200
+        environment:
+            NODE_ENV: "development"
+
+    mongo:
+        image: mongo
+        ports:
+            - "27017:27017"
+        # comment out this command if you need to see mongod output
+        # it's too verbose for regular use, and almost never relevant
+        command: mongod --quiet --logpath /dev/null

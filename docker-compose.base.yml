@@ -1,0 +1,11 @@
+services:
+  nx-app-base:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    environment:
+      - DEV_PLATFORM=DOCKER
+    volumes:
+      - ./:/app

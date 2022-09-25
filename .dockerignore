@@ -1,0 +1,7 @@
+node_modules
+docker-compose.*
+.vscode
+caddy
+dist
+.env
+.env.local
