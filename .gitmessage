@@ -1,0 +1,11 @@
+# https://www.conventionalcommits.org/en/v1.0.0/
+# <type>[optional scope]: <description>
+#
+# [optional body]
+#
+# [optional footer(s)]
+
+# <type> = fix | feat | build | chore | ci | docs | style | refactor | perf | test
+# [optional footer(s)]
+# Reviewed-by: Z
+# Refs: #123

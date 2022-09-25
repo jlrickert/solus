@@ -1,5 +1,5 @@
-import * as PIXI from "pixi.js";
 import { Viewport } from "pixi-viewport";
+import * as PIXI from "pixi.js";
 import "./app.element.css";
 
 const app = new PIXI.Application();
@@ -19,18 +19,12 @@ const viewport = new Viewport({
 app.stage.addChild(viewport);
 
 // activate plugins
-viewport
-    .drag()
-    .pinch()
-    .wheel()
-    .decelerate()
-    .clamp({ direction: "all" })
-    .clampZoom({
-        minWidth: 100,
-        minHeight: 100,
-        maxWidth: 1000,
-        maxHeight: 1000,
-    });
+viewport.drag().pinch().wheel().decelerate().clamp({ direction: "all" }).clampZoom({
+    minWidth: 100,
+    minHeight: 100,
+    maxWidth: 1000,
+    maxHeight: 1000,
+});
 
 // add a red box
 const sprite = viewport.addChild(new PIXI.Sprite(PIXI.Texture.WHITE));

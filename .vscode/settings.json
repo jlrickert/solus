@@ -22,5 +22,5 @@
         "**/.yarn": true,
         "**/.pnp.*": true
     },
-    "cSpell.words": ["GOLDSTACK", "testcontainers"]
+    "cSpell.words": ["GOLDSTACK", "nrwl", "testcontainers"]
 }
