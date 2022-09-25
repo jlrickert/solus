@@ -3,9 +3,8 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "serve:prod": "nx run-many --target=serve --configuration=production",
-        "start": "nx serve",
-        "build": "nx build",
+        "start": "nx run-many --target=serve --configuration=development",
+        "build": "nx run-many --target=build",
         "test": "nx test"
     },
     "private": true,
@@ -14,6 +13,7 @@
         "@nestjs/core": "^9.0.0",
         "@nestjs/platform-express": "^9.0.0",
         "core-js": "^3.6.5",
+        "pixi-viewport": "^4.35.1",
         "pixi.js": "^6.5.4",
         "reflect-metadata": "^0.1.13",
         "regenerator-runtime": "0.13.7",
