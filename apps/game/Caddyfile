@@ -1,0 +1,11 @@
+{
+	auto_https off
+	admin off
+}
+
+:8080 {
+	root * /app/dist
+	encode gzip
+	try_files {path} /index.html
+	file_server
+}

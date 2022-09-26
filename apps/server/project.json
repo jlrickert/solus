@@ -56,6 +56,13 @@
                 "jestConfig": "apps/server/jest.config.ts",
                 "passWithNoTests": true
             }
+        },
+        "deploy": {
+            "executor": "nx:run-commands",
+            "outputs": [],
+            "options": {
+                "command": "bash ./apps/server/deploy.sh"
+            }
         }
     },
     "tags": []

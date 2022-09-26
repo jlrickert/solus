@@ -9,7 +9,9 @@
         "test": "nx test",
         "affected:lint": "nx affected --target=lint",
         "affected:format": "nx affected --target=format",
-        "affected:test": "nx affected --target=test"
+        "affected:test": "nx affected --target=test",
+        "affected:deploy": "nx affected --target=deploy",
+        "redis": "fly redis connect"
     },
     "private": true,
     "dependencies": {

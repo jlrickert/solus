@@ -1,0 +1,15 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/gateway/src",
+    "projectType": "application",
+    "targets": {
+        "deploy": {
+            "executor": "nx:run-commands",
+            "outputs": [],
+            "options": {
+                "command": "bash ./apps/gateway/deploy.sh"
+            }
+        }
+    },
+    "tags": []
+}

@@ -66,6 +66,13 @@
                 "jestConfig": "apps/game/jest.config.ts",
                 "passWithNoTests": true
             }
+        },
+        "deploy": {
+            "executor": "nx:run-commands",
+            "outputs": [],
+            "options": {
+                "command": "bash ./apps/game/deploy.sh"
+            }
         }
     }
 }

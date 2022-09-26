@@ -4,6 +4,7 @@
     "projects": {
         "core": "libs/core",
         "game": "apps/game",
+        "gateway": "apps/gateway",
         "server": "apps/server"
     }
 }
