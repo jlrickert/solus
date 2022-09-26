@@ -8,31 +8,37 @@ services:
             - "443:443/udp"
         volumes:
             - ./Caddyfile:/etc/caddy/Caddyfile:ro
-            - ./.caddy/data:/data:rw
         environment:
             ACME_AGREE: "true"
-            NODE_ENV: "development"
 
     server:
-        extends:
-            file: docker-compose.base.yml
-            service: nx-app-base
+        image: "solus-server"
+        build:
+            context: "./"
+            dockerfile: "./apps/server/Dockerfile"
+            target: "development"
         command: nx run server:serve:development
         expose:
-            - 3333:3333
+            - 8080:8080
             - 9229:9229
-        environment:
-            NODE_ENV: "development"
+        env_file:
+            - .env
+        volumes:
+            - ./:/app
 
     game:
-        extends:
-            file: docker-compose.base.yml
-            service: nx-app-base
-        command: nx run game:serve:development --host=0.0.0.0 --disableHostCheck=true
+        image: "solus-game"
+        build:
+            context: "./"
+            dockerfile: "./apps/game/Dockerfile"
+            target: "development"
+        command: nx run game:serve:development --host=0.0.0.0 --port=8080 --disableHostCheck=true
         expose:
-            - 4200:4200
-        environment:
-            NODE_ENV: "development"
+            - 8080:8080
+        env_file:
+            - .env
+        volumes:
+            - ./:/app
 
     mongo:
         image: mongo

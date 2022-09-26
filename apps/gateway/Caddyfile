@@ -1,0 +1,20 @@
+{
+	auto_https off
+	admin off
+}
+
+:8080 {
+	encode gzip
+
+	handle /api* {
+		# reverse_proxy solus-server.internal:8080 {
+		reverse_proxy {
+			dynamic a solus-server.internal 8080
+			lb_policy first
+		}
+	}
+
+	reverse_proxy {
+		dynamic a solus-game.internal 8080
+	}
+}

@@ -1,14 +1,15 @@
 {
-        email jaredrickert52@gmail.com
-        local_certs
+	email jaredrickert52@gmail.com
+	local_certs
+	admin off
 }
 
 localhost {
-        encode gzip
+	encode gzip
 
-        handle /api* {
-                reverse_proxy server:3333
-        }
+	handle /api* {
+		reverse_proxy server:8080
+	}
 
-        reverse_proxy game:4200
+	reverse_proxy game:8080
 }
